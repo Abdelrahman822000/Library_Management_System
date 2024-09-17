@@ -2,7 +2,7 @@
 
 # Library Management System
 
-A C++ application that enables users to manage books in a library, allowing them to borrow, return, and view book availability status.
+A console-based application for managing a library, allowing users to borrow and return books, view transactions, and manage members.
 
 ## Table of Contents
 - [Project Description](#project-description)
@@ -14,14 +14,18 @@ A C++ application that enables users to manage books in a library, allowing them
 
 ## Project Description
 
-The Library Management System is a console application developed using C++. It enables users to manage a library's book inventory by providing options to borrow, return, and display the availability of books. It simplifies library management and offers a user-friendly interface for book management.
+The Library Management System is a C++ console application designed to manage books and members in a library. It allows users to borrow and return books, view transaction history, and register or sign in as members. The system also provides functionalities to view all available books and members.
 
 ## Features
 
-- **Display All Books:** List all the books in the library along with their availability status.
-- **Borrow Book:** Allows users to borrow an available book.
-- **Return Book:** Enables users to return a previously borrowed book.
-- **Exit:** Exit the application.
+- **Add Books:** Add new books to the library.
+- **Register Member:** Register new library members.
+- **Borrow Book:** Borrow a book from the library.
+- **Return Book:** Return a borrowed book.
+- **Display Books:** Show all books in the library along with their availability.
+- **Display Transactions:** View the history of borrowing and returning transactions.
+- **Display Members:** View all registered library members.
+- **Sign In/Sign Up:** Log in or register as a new member.
 
 ## Installation
 
@@ -39,7 +43,7 @@ The Library Management System is a console application developed using C++. It e
 
 2. **Build the project:**
     ```bash
-    g++ main.cpp -o LibraryManagementSystem
+    g++ main.cpp Book.cpp Member.cpp Transaction.cpp Library.cpp operations.cpp -o LibraryManagementSystem
     ```
 
 3. **Run the Program:**
@@ -52,49 +56,356 @@ The Library Management System is a console application developed using C++. It e
 ### Running the Application
 
 1. **Start the Application:**
-    - After running the `LibraryManagementSystem` executable, follow the on-screen instructions to display all books, borrow a book, return a book, or exit the system.
+    - After running the `LibraryManagementSystem` executable, follow the on-screen instructions to interact with the library system.
 
 2. **Menu Options:**
-    - **Display All Books:** Lists all the books in the library along with their current status (available/borrowed).
-    - **Borrow Book:** Lets users borrow books from the library by choosing from the list of available books.
-    - **Return Book:** Users can return a borrowed book and update its status.
-    - **Exit:** Exit the program.
+    - **Add Book:** Add a new book to the library.
+    - **Register Member:** Register a new member in the library.
+    - **Borrow Book:** Borrow a book from the library.
+    - **Return Book:** Return a borrowed book.
+    - **Display Books:** View all books and their availability.
+    - **Display Transactions:** See the history of transactions (borrowing and returning).
+    - **Display Members:** List all registered members.
+    - **Sign In/Sign Up:** Log in or register as a member.
 
 ### Example Output
 
 ```
-Welcome to the Library Management System!
-1. Display All Books
-2. Borrow Book
-3. Return Book
-4. Exit
-Please choose an option (1-4): 1
-Books Available in the Library:
-1. The Great Gatsby - Available
-2. 1984 - Borrowed
-3. To Kill a Mockingbird - Available
-4. Moby Dick - Available
+Book "The Great Gatsby" added to the library.
+Book "1984" added to the library.
+Book "To Kill a Mockingbird" added to the library.
+Book "Moby Dick" added to the library.
+Book "Pride and Prejudice" added to the library.
+Book "War and Peace" added to the library.
+Book "The Catcher in the Rye" added to the library.
+Book "The Hobbit" added to the library.
+Book "Crime and Punishment" added to the library.
+Book "The Odyssey" added to the library.
+Book "Jane Eyre" added to the library.
+Book "Brave New World" added to the library.
+Book "The Lord of the Rings" added to the library.
+Book "Animal Farm" added to the library.
+Book "Les Mis├⌐rables" added to the library.
+Book "The Divine Comedy" added to the library.
+Book "Ulysses" added to the library.
+Book "One Hundred Years of Solitude" added to the library.
+Book "The Brothers Karamazov" added to the library.
+Book "Don Quixote" added to the library.
+Book "Wuthering Heights" added to the library.
+Book "A Tale of Two Cities" added to the library.
 
-1. Display All Books
-2. Borrow Book
-3. Return Book
-4. Exit
-Please choose an option (1-4): 2
-Enter the number of the book you want to borrow: 1
-You have borrowed "The Great Gatsby".
-1. Display All Books
-2. Borrow Book
-3. Return Book
-4. Exit
-Please choose an option (1-4): 3
-Enter the number of the book you want to return: 2
-You have returned "1984".
-1. Display All Books
-2. Borrow Book
-3. Return Book
-4. Exit
-Please choose an option (1-4): 4
-Thank you for using the Library Management System!
+Welcome to the Library Management System!
+
+1. Sign In
+2. Sign Up
+Enter your choice: 2
+Enter your name: Abdelrahman
+Enter a membership ID: 1234
+ID 1234 is available.
+Enter your contact information: 01028325749
+Member "Abdelrahman" registered.
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 1
+Library books:
+The Great Gatsby by F. Scott Fitzgerald - Available
+1984 by George Orwell - Available
+To Kill a Mockingbird by Harper Lee - Available
+Moby Dick by Herman Melville - Available
+Pride and Prejudice by Jane Austen - Available
+War and Peace by Leo Tolstoy - Available
+The Catcher in the Rye by J.D. Salinger - Available
+The Hobbit by J.R.R. Tolkien - Available
+Crime and Punishment by Fyodor Dostoevsky - Available
+The Odyssey by Homer - Available
+Jane Eyre by Charlotte Bronte - Available
+Brave New World by Aldous Huxley - Available
+The Lord of the Rings by J.R.R. Tolkien - Available
+Animal Farm by George Orwell - Available
+Les Mis├⌐rables by Victor Hugo - Available
+The Divine Comedy by Dante Alighieri - Available
+Ulysses by James Joyce - Available
+One Hundred Years of Solitude by Gabriel Garcia Marquez - Available
+The Brothers Karamazov by Fyodor Dostoevsky - Available
+Don Quixote by Miguel de Cervantes - Available
+Wuthering Heights by Emily Bronte - Available
+A Tale of Two Cities by Charles Dickens - Available
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 2
+Available books to borrow:
+Library books:
+The Great Gatsby by F. Scott Fitzgerald - Available
+1984 by George Orwell - Available
+To Kill a Mockingbird by Harper Lee - Available
+Moby Dick by Herman Melville - Available
+Pride and Prejudice by Jane Austen - Available
+War and Peace by Leo Tolstoy - Available
+The Catcher in the Rye by J.D. Salinger - Available
+The Hobbit by J.R.R. Tolkien - Available
+Crime and Punishment by Fyodor Dostoevsky - Available
+The Odyssey by Homer - Available
+Jane Eyre by Charlotte Bronte - Available
+Brave New World by Aldous Huxley - Available
+The Lord of the Rings by J.R.R. Tolkien - Available
+Animal Farm by George Orwell - Available
+Les Mis├⌐rables by Victor Hugo - Available
+The Divine Comedy by Dante Alighieri - Available
+Ulysses by James Joyce - Available
+One Hundred Years of Solitude by Gabriel Garcia Marquez - Available
+The Brothers Karamazov by Fyodor Dostoevsky - Available
+Don Quixote by Miguel de Cervantes - Available
+Wuthering Heights by Emily Bronte - Available
+A Tale of Two Cities by Charles Dickens - Available
+Enter the title of the book you want to borrow: 1984
+Abdelrahman borrowed "1984".
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 3
+Borrowing/Returning History:
+Abdelrahman borrowed "1984"
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 4
+Books you have borrowed:
+- 1984
+Enter the title of the book you want to return: 1984
+Abdelrahman returned "1984".
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 3
+Borrowing/Returning History:
+Abdelrahman borrowed "1984"
+Abdelrahman returned "1984"
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 5
+Library Members:
+Member: Abdelrahman, ID: 1234
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 6
+Signing out Abdelrahman...
+1. Sign In
+2. Sign Up
+Enter your choice: 2
+Enter your name: Ahmed
+Enter a membership ID: 1234
+ID is taken!
+Enter a membership ID again: 1342
+ID 1342 is available.
+Enter your contact information: 0102
+Member "Ahmed" registered.
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 2
+Available books to borrow:
+Library books:
+The Great Gatsby by F. Scott Fitzgerald - Available
+1984 by George Orwell - Available
+To Kill a Mockingbird by Harper Lee - Available
+Moby Dick by Herman Melville - Available
+Pride and Prejudice by Jane Austen - Available
+War and Peace by Leo Tolstoy - Available
+The Catcher in the Rye by J.D. Salinger - Available
+The Hobbit by J.R.R. Tolkien - Available
+Crime and Punishment by Fyodor Dostoevsky - Available
+The Odyssey by Homer - Available
+Jane Eyre by Charlotte Bronte - Available
+Brave New World by Aldous Huxley - Available
+The Lord of the Rings by J.R.R. Tolkien - Available
+Animal Farm by George Orwell - Available
+Les Mis├⌐rables by Victor Hugo - Available
+The Divine Comedy by Dante Alighieri - Available
+Ulysses by James Joyce - Available
+One Hundred Years of Solitude by Gabriel Garcia Marquez - Available
+The Brothers Karamazov by Fyodor Dostoevsky - Available
+Don Quixote by Miguel de Cervantes - Available
+Wuthering Heights by Emily Bronte - Available
+A Tale of Two Cities by Charles Dickens - Available
+Enter the title of the book you want to borrow: The Great Gatsby
+Ahmed borrowed "The Great Gatsby".
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 6
+Signing out Ahmed...
+1. Sign In
+2. Sign Up
+Enter your choice: 1
+Enter your membership ID to sign in: 1234
+Welcome back, Abdelrahman!
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 1
+Library books:
+The Great Gatsby by F. Scott Fitzgerald - Checked Out
+1984 by George Orwell - Available
+To Kill a Mockingbird by Harper Lee - Available
+Moby Dick by Herman Melville - Available
+Pride and Prejudice by Jane Austen - Available
+War and Peace by Leo Tolstoy - Available
+The Catcher in the Rye by J.D. Salinger - Available
+The Hobbit by J.R.R. Tolkien - Available
+Crime and Punishment by Fyodor Dostoevsky - Available
+The Odyssey by Homer - Available
+Jane Eyre by Charlotte Bronte - Available
+Brave New World by Aldous Huxley - Available
+The Lord of the Rings by J.R.R. Tolkien - Available
+Animal Farm by George Orwell - Available
+Les Mis├⌐rables by Victor Hugo - Available
+The Divine Comedy by Dante Alighieri - Available
+Ulysses by James Joyce - Available
+One Hundred Years of Solitude by Gabriel Garcia Marquez - Available
+The Brothers Karamazov by Fyodor Dostoevsky - Available
+Don Quixote by Miguel de Cervantes - Available
+Wuthering Heights by Emily Bronte - Available
+A Tale of Two Cities by Charles Dickens - Available
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 2
+Available books to borrow:
+Library books:
+The Great Gatsby by F. Scott Fitzgerald - Checked Out
+1984 by George Orwell - Available
+To Kill a Mockingbird by Harper Lee - Available
+Moby Dick by Herman Melville - Available
+Pride and Prejudice by Jane Austen - Available
+War and Peace by Leo Tolstoy - Available
+The Catcher in the Rye by J.D. Salinger - Available
+The Hobbit by J.R.R. Tolkien - Available
+Crime and Punishment by Fyodor Dostoevsky - Available
+The Odyssey by Homer - Available
+Jane Eyre by Charlotte Bronte - Available
+Brave New World by Aldous Huxley - Available
+The Lord of the Rings by J.R.R. Tolkien - Available
+Animal Farm by George Orwell - Available
+Les Mis├⌐rables by Victor Hugo - Available
+The Divine Comedy by Dante Alighieri - Available
+Ulysses by James Joyce - Available
+One Hundred Years of Solitude by Gabriel Garcia Marquez - Available
+The Brothers Karamazov by Fyodor Dostoevsky - Available
+Don Quixote by Miguel de Cervantes - Available
+Wuthering Heights by Emily Bronte - Available
+A Tale of Two Cities by Charles Dickens - Available
+Enter the title of the book you want to borrow: 1984
+Abdelrahman borrowed "1984".
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 3
+Borrowing/Returning History:
+Abdelrahman borrowed "1984"
+Abdelrahman returned "1984"
+Ahmed borrowed "The Great Gatsby"
+Abdelrahman borrowed "1984"
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 5
+Library Members:
+Member: Abdelrahman, ID: 1234
+Member: Ahmed, ID: 1342
+
+Choose an option:
+1. Show Available Books
+2. Borrow a Book
+3. Show Borrowed/Returned Books
+4. Return a Book
+5. View Library Members
+6. Sign Out
+7. Exit
+Enter your choice: 7
+Goodbye!
+
 ```
 
 ## License
