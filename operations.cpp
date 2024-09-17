@@ -1,6 +1,7 @@
 #include "operations.h" // Include the header file for operation-related declarations
 
-// Function to handle user operations, providing a menu for various library-related actions.
+// Function to handle user operations, providing a menu for various game-related actions.
+
 void Operations()
 {
     // Create a Library instance
@@ -41,6 +42,8 @@ void Operations()
     Member* currentMember = nullptr; // Pointer to keep track of the current logged-in member
 
     // User chooses to sign in or sign up
+    std::cout << std::endl << "Welcome to the Library Management System!" <<std::endl;
+
     currentMember = loginMenu(myLibrary);
 
     int choice = 0;
@@ -114,5 +117,116 @@ void Operations()
                 std::cout << "Invalid choice. Please try again." << std::endl;
             }
         } while (choice != 6 && choice != 7); // Repeat until the user chooses to sign out or exit
+    }
+}
+// Function to display the menu options
+void showMenu()
+{
+    std::cout << std::endl
+              << "Choose an option:" << std::endl;
+    std::cout << "1. Show Available Books" << std::endl;
+    std::cout << "2. Borrow a Book" << std::endl;
+    std::cout << "3. Show Borrowed/Returned Books" << std::endl;
+    std::cout << "4. Return a Book" << std::endl;
+    std::cout << "5. View Library Members" << std::endl;
+    std::cout << "6. Sign Out" << std::endl;
+    std::cout << "7. Exit" << std::endl;
+    std::cout << "Enter your choice: ";
+}
+
+bool checkID(Library &library, std::string membershipID)
+{
+    Member *member = library.findMember(membershipID);
+
+    if (member)
+    {
+        std::cout << "ID is taken!" << std::endl;
+        return false;
+    }
+    else
+    {
+        std::cout << "ID " << membershipID << " is available." << std::endl;
+        return true;
+    }
+}
+
+// Function to register a new member
+Member *signUp(Library &library)
+{
+    std::string name, membershipID, contactInfo;
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, name);
+    std::cout << "Enter a membership ID: ";
+    std::getline(std::cin, membershipID);
+    while (true)
+    {
+        bool idAvailable = checkID(library, membershipID);
+        if (idAvailable)
+        {
+            break;
+        }
+        else
+        {
+            std::cout << "Enter a membership ID again: ";
+            std::getline(std::cin, membershipID);
+        }
+    }
+    std::cout << "Enter your contact information: ";
+    std::getline(std::cin, contactInfo);
+
+    Member *newMember = new Member(name, membershipID, contactInfo);
+    library.registerMember(newMember);
+    return newMember;
+}
+
+// Function to sign in an existing user
+Member *signIn(Library &library)
+{
+    std::string membershipID;
+    std::cout << "Enter your membership ID to sign in: ";
+    std::getline(std::cin, membershipID);
+
+    Member *member = library.findMember(membershipID);
+
+    if (member)
+    {
+        std::cout << "Welcome back, " << member->name << "!" << std::endl;
+        return member;
+    }
+    else
+    {
+        std::cout << "No member found with ID " << membershipID << "." << std::endl;
+        return nullptr;
+    }
+}
+
+// Function to handle user login/signup
+Member *loginMenu(Library &library)
+{
+    int choice;
+    std::cout << "1. Sign In" << std::endl;
+    std::cout << "2. Sign Up" << std::endl;
+    std::cout << "Enter your choice: ";
+    std::cin >> choice;
+    std::cin.ignore(); // Clear the input buffer
+
+    if (choice == 1)
+    {
+        Member *member = signIn(library);
+        if (member != nullptr)
+        {
+            return member;
+        }
+        std::cout << "Please sign up if you don't have an account." << std::endl;
+        return loginMenu(library); // Retry login/signup
+    }
+    else if (choice == 2)
+    {
+        return signUp(library);
+    }
+    else
+    {
+        std::cout << "Invalid choice. Please try again." << std::endl;
+        return loginMenu(library); // Retry login/signup
     }
 }

@@ -1,7 +1,3 @@
-Here's the updated README with the parts related to Qt removed:
-
----
-
 **This Project was developed by Abdelrahman Mohamed Hamad**
 
 # Library Management System
