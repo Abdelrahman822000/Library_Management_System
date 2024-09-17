@@ -1,20 +1,24 @@
 #ifndef BOOK_H
 #define BOOK_H
 
+// Include the necessary standard libraries and headers
 #include "includes.h"
 
-// Class to represent a Book
+// Class to represent a Book in the library
 class Book
 {
 public:
-    std::string title;
-    std::string author;
-    std::string publicationDate;
-    bool isAvailable;
+    // Member variables to store book details
+    std::string title;               // Title of the book
+    std::string author;              // Author of the book
+    std::string publicationDate;     // Publication date of the book
+    bool isAvailable;                // Availability status of the book
 
-    Book(std::string t, std::string a, std::string i, std::string pd);
+    // Constructor to initialize a Book object with given details
+    Book(std::string t, std::string a, std::string pd);
 
+    // Member function to display book information
     void displayInfo();
 };
 
-#endif
+#endif // BOOK_H
