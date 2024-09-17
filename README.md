@@ -405,7 +405,6 @@ Choose an option:
 7. Exit
 Enter your choice: 7
 Goodbye!
-
 ```
 
 ## License
