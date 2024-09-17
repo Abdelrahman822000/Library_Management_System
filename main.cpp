@@ -15,7 +15,7 @@ public:
     string publicationDate;
     bool isAvailable;
 
-    Book(string t, string a, string i, string pd)
+    Book(string t, string a, string pd)
         : title(t), author(a), publicationDate(pd), isAvailable(true) {}
 
     void displayInfo()
@@ -326,10 +326,52 @@ int main()
     Library myLibrary;
 
     // Pre-defined books for the library
-    Book *book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "123456789", "1925");
-    Book *book2 = new Book("1984", "George Orwell", "987654321", "1949");
+    Book *book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "1925");
+    Book *book2 = new Book("1984", "George Orwell", "1949");
+    Book *book3 = new Book("To Kill a Mockingbird", "Harper Lee", "1960");
+    Book *book4 = new Book("Moby Dick", "Herman Melville", "1851");
+    Book *book5 = new Book("Pride and Prejudice", "Jane Austen", "1813");
+    Book *book6 = new Book("War and Peace", "Leo Tolstoy", "1869");
+    Book *book7 = new Book("The Catcher in the Rye", "J.D. Salinger", "1951");
+    Book *book8 = new Book("The Hobbit", "J.R.R. Tolkien", "1937");
+    Book *book9 = new Book("Crime and Punishment", "Fyodor Dostoevsky", "1866");
+    Book *book10 = new Book("The Odyssey", "Homer", "8th Century BC");
+    Book *book11 = new Book("Jane Eyre", "Charlotte Bronte", "1847");
+    Book *book12 = new Book("Brave New World", "Aldous Huxley", "1932");
+    Book *book13 = new Book("The Lord of the Rings", "J.R.R. Tolkien", "1954");
+    Book *book14 = new Book("Animal Farm", "George Orwell", "1945");
+    Book *book15 = new Book("Les Misérables", "Victor Hugo", "1862");
+    Book *book16 = new Book("The Divine Comedy", "Dante Alighieri", "1320");
+    Book *book17 = new Book("Ulysses", "James Joyce", "1922");
+    Book *book18 = new Book("One Hundred Years of Solitude", "Gabriel Garcia Marquez", "1967");
+    Book *book19 = new Book("The Brothers Karamazov", "Fyodor Dostoevsky", "1880");
+    Book *book20 = new Book("Don Quixote", "Miguel de Cervantes", "1605");
+    Book *book21 = new Book("Wuthering Heights", "Emily Bronte", "1847");
+    Book *book22 = new Book("A Tale of Two Cities", "Charles Dickens", "1859");
+
+    // Adding books to the library
     myLibrary.addBook(book1);
     myLibrary.addBook(book2);
+    myLibrary.addBook(book3);
+    myLibrary.addBook(book4);
+    myLibrary.addBook(book5);
+    myLibrary.addBook(book6);
+    myLibrary.addBook(book7);
+    myLibrary.addBook(book8);
+    myLibrary.addBook(book9);
+    myLibrary.addBook(book10);
+    myLibrary.addBook(book11);
+    myLibrary.addBook(book12);
+    myLibrary.addBook(book13);
+    myLibrary.addBook(book14);
+    myLibrary.addBook(book15);
+    myLibrary.addBook(book16);
+    myLibrary.addBook(book17);
+    myLibrary.addBook(book18);
+    myLibrary.addBook(book19);
+    myLibrary.addBook(book20);
+    myLibrary.addBook(book21);
+    myLibrary.addBook(book22);
 
     Member *currentMember = nullptr;
 
